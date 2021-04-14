@@ -1,24 +1,25 @@
 <template>
-  <div class="postsnew">
-    <div>
-      <h2>Add a post.</h2>
-      <p>
-        Title:
-        <input type="text" placeholder="Title" v-model="postTitle" />
-      </p>
-      <p>
-        Content:
-        <input type="text" placeholder="Content" v-model="postBody" />
-      </p>
-      <p>
-        Image:
-        <input type="text" placeholder="Image" v-model="postImage" />
-        <br />
-      </p>
-      <p>
-        <button v-on:click="createPost()">Add Post</button>
-      </p>
+  <div class="posts-new">
+    <h2>Add a post.</h2>
+    <div class="form-group">
+      <label for="formGroupExampleTitle">Title:</label>
+      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Title" v-model="postTitle" />
     </div>
+    <div class="form-group">
+      <label for="formGroupExampleContent">Content:</label>
+      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Content" v-model="postBody" />
+      <small v-if="postBody.length > 0 && postBody.length < 200">
+        {{ 200 - postBody.length }} characters remaining.
+      </small>
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleImage">Image:</label>
+      <input type="text" class="form-control" id="formGroupExampleImage" placeholder="Image" v-model="postImage" />
+    </div>
+    <p>
+      <button v-on:click="createPost()" class="btn btn-secondary">Add Post</button>
+    </p>
+    <!-- </div> -->
   </div>
 </template>
 
